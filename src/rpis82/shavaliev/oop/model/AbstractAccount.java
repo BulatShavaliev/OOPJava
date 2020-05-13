@@ -15,7 +15,8 @@ public abstract class AbstractAccount implements Account {
     private Tariff tariff;
     private LocalDate registrationDate;
 
-    protected AbstractAccount(long number, Tariff tariff, LocalDate registrationDate) {
+    protected AbstractAccount(long number, Tariff tariff, LocalDate registrationDate)
+    {
         if (registrationDate.isAfter(LocalDate.now())) throw new IllegalArgumentException();
         if (!isValidNumber(number)) throw new IllegalAccountNumber();
         this.number = number;
@@ -24,28 +25,33 @@ public abstract class AbstractAccount implements Account {
     }
 
     @Override
-    public long getNumber() {
+    public long getNumber()
+    {
         return this.number;
     }
 
     @Override
-    public Tariff getTariff() {
+    public Tariff getTariff()
+    {
         return this.tariff;
     }
 
     @Override
-    public void setTariff(Tariff tariff) {
+    public void setTariff(Tariff tariff)
+    {
         if (tariff == null) throw new NullPointerException();
         this.tariff = tariff;
     }
 
     @Override
-    public LocalDate getRegistrationDate() {
+    public LocalDate getRegistrationDate()
+    {
         return this.registrationDate;
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(Object o)
+    {
         if (this == o) return true;
         if (!(o instanceof AbstractAccount)) return false;
         AbstractAccount that = (AbstractAccount) o;
@@ -55,12 +61,14 @@ public abstract class AbstractAccount implements Account {
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode()
+    {
         return Objects.hash(number, tariff, registrationDate);
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return String.format("number: %s\n%s", number, tariff);
     }
 }

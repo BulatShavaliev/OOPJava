@@ -3,8 +3,8 @@ package rpis82.shavaliev.oop.model;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public final class Service implements Cloneable, Comparable<Service> {
-
+public final class Service implements Cloneable, Comparable<Service>
+{
     public static final int COST_DEFAULT = 300;
     public static final String NAME_DEFAULT = "интернет 100мб\\сек";
     public static final ServiceTypes SERVICE_TYPES_DEFAULT = ServiceTypes.INTERNET;
@@ -15,11 +15,13 @@ public final class Service implements Cloneable, Comparable<Service> {
     private final ServiceTypes serviceType;
     private final LocalDate activationDate;
 
-    public Service() {
+    public Service()
+    {
         this(NAME_DEFAULT, COST_DEFAULT, SERVICE_TYPES_DEFAULT, ACTIVATION_DATE_DEFAULT);
     }
 
-    public Service(String name, double cost, ServiceTypes serviceType, LocalDate activationDate) {
+    public Service(String name, double cost, ServiceTypes serviceType, LocalDate activationDate)
+    {
         if (name == null || serviceType == null || activationDate == null) throw new NullPointerException();
         if (activationDate.isAfter(ACTIVATION_DATE_DEFAULT)) throw new IllegalArgumentException();
         this.name = name;
@@ -28,24 +30,29 @@ public final class Service implements Cloneable, Comparable<Service> {
         this.activationDate = activationDate;
     }
 
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 
-    public double getCost() {
+    public double getCost()
+    {
         return cost;
     }
 
-    public ServiceTypes getServiceType() {
+    public ServiceTypes getServiceType()
+    {
         return serviceType;
     }
 
-    public LocalDate getActivationDate() {
+    public LocalDate getActivationDate()
+    {
         return activationDate;
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(Object o)
+    {
         if (this == o) return true;
         if (!(o instanceof Service)) return false;
         Service service = (Service) o;
@@ -56,22 +63,26 @@ public final class Service implements Cloneable, Comparable<Service> {
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode()
+    {
         return Objects.hash(name, cost, serviceType, activationDate);
     }
 
     @Override
-    protected Object clone() throws CloneNotSupportedException {
+    protected Object clone() throws CloneNotSupportedException
+    {
         return super.clone();
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
             return String.format("name %s \\ cost %fр.", name, cost);
     }
 
     @Override
-    public int compareTo(Service o) {
+    public int compareTo(Service o)
+    {
         return ((int) (this.cost - o.getCost()));
     }
 }

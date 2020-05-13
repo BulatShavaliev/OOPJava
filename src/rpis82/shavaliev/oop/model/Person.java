@@ -2,35 +2,41 @@ package rpis82.shavaliev.oop.model;
 
 import java.util.Objects;
 
-public class Person {
-
+public class Person
+{
     private String fName;
     private String sName;
 
-    public Person(String fName, String sName) {
+    public Person(String fName, String sName)
+    {
         if (fName == null || sName == null) throw new NullPointerException();
         this.fName = fName;
         this.sName = sName;
     }
 
-    public String getfName() {
+    public String getfName()
+    {
         return fName;
     }
 
-    public void setfName(String fName) {
+    public void setfName(String fName)
+    {
         this.fName = fName;
     }
 
-    public String getsName() {
+    public String getsName()
+    {
         return sName;
     }
 
-    public void setsName(String sName) {
+    public void setsName(String sName)
+    {
         this.sName = sName;
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(Object o)
+    {
         if (this == o) return true;
         if (!(o instanceof Person)) return false;
         Person person = (Person) o;
@@ -39,11 +45,13 @@ public class Person {
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode()
+    {
         return Objects.hash(fName, sName);
     }
 
-    public String toString() {
+    public String toString()
+    {
         return String.format("%s %s", fName, sName);
     }
 }

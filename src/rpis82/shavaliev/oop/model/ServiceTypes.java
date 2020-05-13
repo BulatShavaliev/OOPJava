@@ -1,6 +1,7 @@
 package rpis82.shavaliev.oop.model;
 
-public enum ServiceTypes {
+public enum ServiceTypes
+{
     INTERNET,
     PHONE,
     STORAGE,
